@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class TrellisCipher {
     private static final int[][] trellisKey = {
         {2, 0, 1},
