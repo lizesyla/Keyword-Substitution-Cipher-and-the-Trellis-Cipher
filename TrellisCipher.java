@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TrellisCipher {
     private static final int[][] trellisKey = {
         {2, 0, 1},
@@ -27,7 +29,6 @@ public class TrellisCipher {
 
         return cipherText.toString();
     }
-
 
     public static String decrypt(String cipherText) {
         cipherText = cipherText.replaceAll("\\s+", "");
