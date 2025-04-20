@@ -30,6 +30,7 @@ public class TrellisCipher {
         return cipherText.toString();
     }
 
+    // Metoda për dekriptim
     public static String decrypt(String cipherText) {
         cipherText = cipherText.replaceAll("\\s+", "");
         int blockSize = trellisKey.length;
@@ -49,13 +50,17 @@ public class TrellisCipher {
     }
 
     public static void main(String[] args) {
-        String originalText = "HELLO WORLD";
-        System.out.println("Teksti origjinal: " + originalText);
+        Scanner scanner = new Scanner(System.in);
 
-        String encrypted = encrypt(originalText);
+        System.out.print("Shkruani tekstin që dëshironi të enkriptoni: ");
+        String userInput = scanner.nextLine();
+
+        String encrypted = encrypt(userInput);
         System.out.println("Teksti i enkriptuar: " + encrypted);
 
         String decrypted = decrypt(encrypted);
         System.out.println("Teksti i dekriptuar: " + decrypted);
+
+        scanner.close();
     }
 }
