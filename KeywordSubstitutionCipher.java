@@ -30,7 +30,7 @@ public class KeywordSubstitutionCipher {
                 int index = ALPHABET.indexOf(ch);
                 encrypted.append(cipherAlphabet.charAt(index));
             } else {
-                encrypted.append(ch); // Keep spaces/punctuation
+                encrypted.append(ch); 
             }
         }
         return encrypted.toString();

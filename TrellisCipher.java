@@ -7,7 +7,6 @@ public class TrellisCipher {
         {0, 1, 2}
     };
 
-    // Enkriptimi i tekstit në blloqe me bazë matricën trellis
     public static String encrypt(String plainText) {
         plainText = plainText.replaceAll("\\s+", "").toUpperCase();
         int blockSize = trellisKey.length;
@@ -32,7 +31,6 @@ public class TrellisCipher {
     }
 
 
-// Dekriptimi i tekstit të enkriptuar
     public static String decrypt(String cipherText) {
         cipherText = cipherText.replaceAll("\\s+", "");
         int blockSize = trellisKey.length;
