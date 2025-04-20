@@ -1,3 +1,37 @@
+import java.util.*;
+
+public class TrellisCipher {
+    private static final int[][] trellisKey = {
+        {2, 0, 1},
+        {1, 2, 0},
+        {0, 1, 2}
+    };
+
+    // Enkriptimi i tekstit në blloqe me bazë matricën trellis
+    public static String encrypt(String plainText) {
+        plainText = plainText.replaceAll("\\s+", "").toUpperCase();
+        int blockSize = trellisKey.length;
+        StringBuilder cipherText = new StringBuilder();
+
+        for (int i = 0; i < plainText.length(); i += blockSize) {
+            char[] block = new char[blockSize];
+
+            for (int j = 0; j < blockSize; j++) {
+                int keyIndex = trellisKey[j][j];
+                if (i + keyIndex < plainText.length()) {
+                    block[j] = plainText.charAt(i + keyIndex);
+                } else {
+                    block[j] = 'X'; 
+                }
+            }
+
+            cipherText.append(block);
+        }
+
+        return cipherText.toString();
+    }
+
+
 // Dekriptimi i tekstit të enkriptuar
     public static String decrypt(String cipherText) {
         cipherText = cipherText.replaceAll("\\s+", "");
